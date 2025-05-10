@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    @apply overflow-x-hidden;
+  }
+  
+  body {
+    @apply bg-background text-text-primary font-sans overflow-x-hidden selection:bg-accent/20 selection:text-accent-dark;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-medium tracking-tight;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply relative bg-text-primary text-white px-8 py-4 rounded-full font-sans text-sm font-medium
+           transition-all duration-500 hover:bg-accent hover:text-text-primary shadow-elegant hover:shadow-luxe
+           transform hover:-translate-y-1 overflow-hidden backdrop-blur-sm
+           after:absolute after:inset-0 after:bg-shimmer after:bg-[length:200%_100%]
+           after:animate-shine after:opacity-0 hover:after:opacity-100;
+  }
+  
+  .btn-secondary {
+    @apply bg-white/80 backdrop-blur-sm text-text-primary px-8 py-4 rounded-full font-sans text-sm font-medium
+           transition-all duration-300 hover:bg-accent/5 shadow-inner-glow hover:shadow-luxe
+           transform hover:-translate-y-1 border border-accent/10;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
+  }
+  
+  .section {
+    @apply py-24 md:py-32;
+  }
+  
+  .card {
+    @apply bg-white/90 backdrop-blur-sm rounded-2xl shadow-elegant overflow-hidden transition-all duration-500 
+           hover:translate-y-[-8px] hover:shadow-luxe border border-accent/5;
+  }
+
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-elegant;
+  }
+
+  .hover-shine {
+    @apply relative overflow-hidden
+           after:absolute after:inset-0 after:bg-shimmer after:bg-[length:200%_100%]
+           after:animate-shine after:opacity-0 hover:after:opacity-100;
+  }
+
+  .elegant-input {
+    @apply w-full px-6 py-4 bg-white/50 backdrop-blur-sm border border-accent/10 rounded-xl
+           focus:outline-none focus:border-accent/30 focus:ring-2 focus:ring-accent/10
+           transition-all duration-300 shadow-inner-glow;
+  }
+
+  .elegant-select {
+    @apply elegant-input appearance-none pr-10 cursor-pointer;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-accent/30 rounded-full transition-colors;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-accent/50;
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-300;
+}
